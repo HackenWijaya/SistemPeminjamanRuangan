@@ -13,7 +13,7 @@ class Publik extends CI_Controller
 		$data['user'] = $this->session->userdata('id_user');
 		$data['username'] = $this->session->userdata('username');
 
-		$data['site'] = $this->m_siplabs->get_data('site')->result();
+		$data['site'] = $this->model->get_data('site')->result();
 		$data['help'] = $this->db->get('help')->result();
 		// $data['ruangan'] = $this->db->get('ruangan')->result();
 		$this->load->view('templates/header', $data);

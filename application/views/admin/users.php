@@ -23,7 +23,7 @@ $query = $this->db->query("SELECT * FROM user WHERE status=1 ORDER BY level")->r
 				<h2>Kelola Data User</h2>
 			</div>
 			<div class="card-body">
-				<?php echo $this->session->flashdata('message'); ?>
+			
 				<div class="row">
 					<div class="col-2">
 						<button class="btn btn-primary" data-toggle="modal" data-target="#adduser"><i class="fas fa-plus"></i>&nbsp;&nbsp;Tambah User</button>

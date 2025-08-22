@@ -21,7 +21,7 @@
         <div class="container-fluid">
             <div class="card card-success">
                 <div class="card-body">
-                    <?= $this->session->flashdata('message'); ?>
+                    
                     <br>
                     <div class="row">
                         <div class="col-lg">

@@ -23,7 +23,7 @@ $peminjaman = $this->db->query("SELECT * FROM peminjaman INNER JOIN user, ruanga
                 <h2>Request Peminjaman</h2>
             </div>
             <div class="card-body">
-                <?php echo $this->session->flashdata('message') ?>
+               
                 <div class="table-responsive">
                     <table id="tabel" class="table table-bordered">
                         <thead>
@@ -51,8 +51,8 @@ $peminjaman = $this->db->query("SELECT * FROM peminjaman INNER JOIN user, ruanga
                                     echo date_format($date, 'd/m /Y'); ?></td>
                                     <td><?php echo $q->keterangan; ?></td>
                                     <td>
-                                        <a href="<?php echo base_url('admin/accrequest/' . $q->id_peminjaman) ?>" onclick="return confirm('Terima Request?')" class="badge badge-primary">Terima Request</a>
-                                        <a href="<?php echo base_url('admin/disaccrequest/' . $q->id_peminjaman) ?>" onclick="return confirm('Tolak Request?')" class="badge badge-danger">Tolak Request</a>
+                                        <a href="<?php echo base_url('admin/accrequest/' . $q->id_peminjaman) ?>" onclick="return confirm('Terima Request?')" class="badge badge-primary">Terima</a>
+                                        <a href="<?php echo base_url('admin/disaccrequest/' . $q->id_peminjaman) ?>" onclick="return confirm('Tolak Request?')" class="badge badge-danger">Tolak</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

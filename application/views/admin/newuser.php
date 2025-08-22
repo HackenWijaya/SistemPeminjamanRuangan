@@ -24,7 +24,7 @@ $datauser = $this->db->query($query)->result();
                 <h2>Pendaftar Baru</h2>
             </div>
             <div class="card-body">
-                <?php echo $this->session->flashdata('message'); ?>
+               
                 <div class="table-responsive">
                     <table id="tabel" class="table table-bordered table-hover">
                         <thead>

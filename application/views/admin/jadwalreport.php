@@ -26,7 +26,7 @@ $jadwal = $this->db->query("SELECT * FROM jadwal INNER JOIN peminjaman, ruangan,
                     <h2>LAPORAN JADWAL</h2>
                 </div>
                 <div class="card-body">
-                    <?php echo $this->session->flashdata('message'); ?>
+                   
                     <div class="row">
                         <div class="col-md">
                             <label for="" class="badge badge-primary">Filter Bulan</label>

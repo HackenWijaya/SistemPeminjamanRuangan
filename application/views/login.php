@@ -4,7 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Sistem Informasi Peminjaman Lab | <?php echo $title; ?></title>
+  <title>
+    <?php echo $title; ?>
+  </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,62 +17,88 @@
   <!-- icheck bootstrap -->
   <link rel="stylesheet" href="<?php echo base_url('assets/') ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="<?php echo base_url('assets/') ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+  <link rel="stylesheet"
+    href="<?php echo base_url('assets/') ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
   <link rel="stylesheet" href="<?php echo base_url('assets/') ?>plugins/toastr/toastr.min.css">
   <link rel="stylesheet" href="<?php echo base_url('assets/') ?>dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:300,400,400i,700&display=swap" rel="stylesheet">
+
+  <script src="https://accounts.google.com/gsi/client"></script>
+
+  <script>
+    function handleCredentialResponse(response) {
+      fetch('auth/authorization', {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ request_type: 'user_auth', credential: response.credential })
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.status == 1) {
+            window.location.replace('http://localhost/peminjaman-ruang/admin');
+          }else if (data.status == 2) {
+            window.location.replace('http://localhost/peminjaman-ruang/peminjam')
+          }
+        })
+    }
+  </script>
+
 </head>
+<style>
+  #g {
 
-<body class="hold-transition login-page" style="background: url('<?php echo base_url('assets/') ?>dist/img/bg.jpg');">
+
+    background-image: url('files/site/PCR.jpeg');
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .logo h3 {
+
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+  }
+</style>
+
+<body class="hold-transition login-page" id="g">
   <?php $this->load->view('ekstra/modal') ?>
-  <div class="login-box">
+  <div class="login-box  ">
     <!-- /.login-logo -->
-    <div class="card">
-      <div class="card-body login-card-body">
-        <?php $site = $this->db->get('site')->result(); ?>
-        <center><img src="<?php echo base_url('files/site/'.$site[0]->logo) ?>" width="125"></center>
-        <div class="logo text-center">
-          <h3><?php echo $site[0]->title ?></h3>
-        </div>
 
-        <span class="text-red" id="message"></span>
-        <form action="<?php echo base_url('auth') ?>" method="post" autocomplete="off">
-          <?php echo $this->session->flashdata('message'); ?>
-          <div class="input-group mb-3">
-            <input type="text" id="username" name="username" class="form-control" value="<?php echo set_value('username'); ?>" placeholder="Username">
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-user"></span>
-              </div>
-            </div>
-          </div>
-          <?php echo form_error('username'); ?>
-          <div class="input-group mb-3">
-            <input type="password" name="password" class="form-control" placeholder="Password">
-            <div class="input-group-append">
-              <div class="input-group-text">
-                <span class="fas fa-lock"></span>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <!-- /.col -->
-            <div class="col-12 text-center">
-              <button type="submit" name="masuk" class="btn btn-primary btn-block btn-flat">Masuk</button>
-              <a href="#" data-toggle="modal" data-target="#mendaftar" class="btn btn-success btn-block btn-flat">Mendaftar</a>
-              <a href="<?php echo base_url('publik') ?>" class="badge text-lg">Menu Bantuan</a>
-            </div>
-            <!-- /.col -->
-          </div>
-        </form>
+    <div class="card-body login-card-body"
+      style="border-radius: 10px; background-size: cover; background-color: rgba(0, 0, 0 , 0.4);">
+      <?php $site = $this->db->get('site')->result(); ?>
+
+      <div class="logo text-center">
+        <h3>Login</h3>
+        <br>
+
       </div>
-      <!-- /.login-card-body -->
+
+      <span class="text-red" id="message"></span>
+      <div id="g_id_onload" data-client_id="376175635050-2j52vjed9d9nmhasm7ca5brsuapv495s.apps.googleusercontent.com"
+        data-context="signin" data-ux_mode="popup" data-callback="handleCredentialResponse" data-auto_prompt="false">
+      </div>
+
+      <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline"
+        data-text="signin_with" data-size="large" data-logo_alignment="left">
+      </div>
+
     </div>
+    <!-- /.login-card-body -->
+  </div>
   </div>
   <!-- /.login-box -->
-  
+
   <!-- jQuery -->
+
+
+  </script>
   <script src="<?= base_url('assets/') ?>plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap 4 -->
   <script src="<?= base_url('assets/') ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -84,7 +112,8 @@
   <script src="<?= base_url('assets/') ?>dist/js/demo.js"></script>
 
   <!-- user -->
-  <script src="<?= base_url('assets/') ?>dist/js/user.js"></script></script>
+  <script src="<?= base_url('assets/') ?>dist/js/user.js"></script>
+  </script>
 
 </body>
 

@@ -1,14 +1,14 @@
 <div class="wrapper">
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
+  <nav class="main-header navbar navbar-expand-md navbar-light bg-info navbar-white">
     <div class="container">
       <a href="index.php" class="navbar-brand">
-
-        <span class="brand-text font-weight-light">Siplabs</span>
+        <span class="brand-text font-weight-light text-white">Jadwal Peminjaman</span>
       </a>
 
-      <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -16,23 +16,25 @@
         <!-- Left navbar links -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a href="<?php echo base_url('peminjam') ?>" class="nav-link">Beranda</a>
+            <a href="<?php echo base_url('peminjam') ?>" class="nav-link text-white">Beranda</a>
           </li>
           <li class="nav-item">
-            <a href="<?php echo base_url('peminjam/jadwal') ?>" class="nav-link">Jadwal</a>
+            <a href="<?php echo base_url('peminjam/jadwal') ?>" class="nav-link text-white">Jadwal</a>
           </li>
-        </ul>
+        </ul>
       </div>
 
       <!-- Right navbar links -->
       <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
         <li class="nav-item">
-          <a href="#" data-toggle="modal" data-target="#logout" class="btn btn-danger btn-flat"><i class="fas fa-power-off"></i>&nbsp;&nbsp;Keluar</a>
+          <a href="#" data-toggle="modal" data-target="#logout" class="btn btn-danger btn-sm"><i
+              class="fas fa-power-off"></i>&nbsp;&nbsp;Keluar</a>
         </li>
       </ul>
     </div>
   </nav>
   <!-- /.navbar -->
+
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -86,40 +88,57 @@
                       </tr>
                     </thead>
                     <?php $no = 1; ?>
-                    <?php foreach ($jadwal as $q) : ?>
+                    <?php foreach ($jadwal as $q): ?>
                       <?php if ($id_user == $q->id_user) { ?>
                         <tbody>
                           <tr>
-                            <td><strong><?php echo $no++; ?></strong></td>
-                            <td><strong><?php echo $q->username; ?></strong></td>
-                            <td><strong><?php echo $q->nama_ruangan; ?></strong></td>
-                            <td><strong><?php echo substr($q->jam_mulai, 0, 5); ?></strong></td>
-                            <td><strong><?php echo substr($q->jam_berakhir, 0, 5); ?></strong></td>
-                            <td><strong><?php $date = date_create($q->tanggal);
-                            echo date_format($date, 'd - m - Y'); ?></strong></td>
-                            <td><strong><?php echo $q->keterangan; ?></strong></td>
+                            <td><strong>
+                                <?php echo $no++; ?>
+                              </strong></td>
+                            <td><strong>
+                                <?php echo $q->username; ?>
+                              </strong></td>
+                            <td><strong>
+                                <?php echo $q->nama_ruangan; ?>
+                              </strong></td>
+                            <td><strong>
+                                <?php echo substr($q->jam_mulai, 0, 5); ?>
+                              </strong></td>
+                            <td><strong>
+                                <?php echo substr($q->jam_berakhir, 0, 5); ?>
+                              </strong></td>
+                            <td><strong>
+                                <?php $date = date_create($q->tanggal);
+                                echo date_format($date, 'd - m - Y'); ?>
+                              </strong></td>
+                            <td><strong>
+                                <?php echo $q->keterangan; ?>
+                              </strong></td>
                             <td>
                               <strong>
-                                <?php 
+                                <?php
                                 switch ($q->status_jadwal) {
                                   case 1:
-                                  echo "<span class='text-success text-bold'>Sedang berlangsung...</span>";
-                                  break;
+                                    echo "<span class='text-success text-bold'>Sedang berlangsung...</span>";
+                                    break;
                                   case 2:
-                                  echo "<span class='text-primary text-bold'>Akan datang...</span>";
-                                  break;
+                                    echo "<span class='text-primary text-bold'>Akan datang...</span>";
+                                    break;
                                   case 3:
-                                  echo "<span class='text-danger text-bold'>Sudah lewat, harap hapus jadwal ini..</span>";
+                                    echo "<span class='text-danger text-bold'>Sudah lewat, harap hapus jadwal ini..</span>";
                                   default:
-                                                # code...
-                                  break;
+                                    # code...
+                                    break;
                                 }
                                 ?>
                               </strong>
                             </td>
                             <td>
-                              <?php if($q->status_jadwal==1){ echo "<span class=text-red>Jadwal tidak bisa dibatalkan</span>"; }else{ ?>
-                                <a href="<?php echo base_url('peminjam/batalpinjam/'.$id_user) ?>" class="badge badge-danger" onclick="return confirm('Batalkan jadwal?')">Batalkan</a>
+                              <?php if ($q->status_jadwal == 1) {
+                                echo "<span class=text-red>Jadwal tidak bisa dibatalkan</span>";
+                              } else { ?>
+                                <a href="<?php echo base_url('peminjam/batalpinjam/' . $id_user) ?>" class="badge badge-danger"
+                                  onclick="return confirm('Batalkan jadwal?')">Batalkan</a>
                               <?php } ?>
                             </td>
                           </tr>
@@ -127,36 +146,50 @@
                       <?php } else { ?>
                         <tbody>
                           <tr>
-                            <td><?php echo $no++; ?></td>
-                            <td><?php echo $q->username; ?></td>
-                            <td><?php echo $q->nama_ruangan; ?></td>
-                            <td><?php echo substr($q->jam_mulai, 0, 5); ?></td>
-                            <td><?php echo substr($q->jam_berakhir, 0, 5); ?></td>
-                            <td><?php $date = date_create($q->tanggal);
-                            echo date_format($date, 'd - m - Y'); ?></td>
-                            <td><?php echo $q->keterangan; ?></td>
+                            <td>
+                              <?php echo $no++; ?>
+                            </td>
+                            <td>
+                              <?php echo $q->username; ?>
+                            </td>
+                            <td>
+                              <?php echo $q->nama_ruangan; ?>
+                            </td>
+                            <td>
+                              <?php echo substr($q->jam_mulai, 0, 5); ?>
+                            </td>
+                            <td>
+                              <?php echo substr($q->jam_berakhir, 0, 5); ?>
+                            </td>
+                            <td>
+                              <?php $date = date_create($q->tanggal);
+                              echo date_format($date, 'd - m - Y'); ?>
+                            </td>
+                            <td>
+                              <?php echo $q->keterangan; ?>
+                            </td>
                             <td>
                               <strong>
-                                <?php 
+                                <?php
                                 switch ($q->status_jadwal) {
                                   case 1:
-                                  echo "<span class='text-success text-bold'>Sedang berlangsung...</span>";
-                                  break;
+                                    echo "<span class='text-success text-bold'>Sedang berlangsung...</span>";
+                                    break;
                                   case 2:
-                                  echo "<span class='text-primary text-bold'>Akan datang...</span>";
-                                  break;
+                                    echo "<span class='text-primary text-bold'>Akan datang...</span>";
+                                    break;
                                   case 3:
-                                  echo "<span class='text-danger text-bold'>Sudah lewat, harap hapus jadwal ini..</span>";
+                                    echo "<span class='text-danger text-bold'>Sudah lewat, harap hapus jadwal ini..</span>";
                                   default:
-                                                # code...
-                                  break;
+                                    # code...
+                                    break;
                                 }
                                 ?>
                               </strong>
-                            </tr>
-                          </tbody>
-                        <?php } ?>
-                      <?php endforeach; ?>
+                          </tr>
+                        </tbody>
+                      <?php } ?>
+                    <?php endforeach; ?>
                     </tbody>
                   </table>
                 </div>
@@ -188,9 +221,9 @@
   <footer class="main-footer">
     <!-- To the right -->
     <div class="float-right d-none d-sm-inline">
-      Anything you want
+
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2019 <a href="<?php echo base_url() ?>">Siplabs Smanda</a>.</strong>
+    <strong>Copyright &copy; 2023 <a href="<?php echo base_url() ?>">Sistem Peminjaman Ruang</a>.</strong>
   </footer>
 </div>

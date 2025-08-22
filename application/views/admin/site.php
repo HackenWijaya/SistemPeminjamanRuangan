@@ -20,7 +20,7 @@
     <section class="content">
         <div class="row">
             <div class="col-lg-12">
-                <?php echo $this->session->flashdata('message') ?>
+      
                 <div class="callout callout-info">
                     <?php foreach($site as $s): ?>
                         <table class="table col-sm-6">

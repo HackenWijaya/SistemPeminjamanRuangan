@@ -20,9 +20,9 @@
       <h3 class="text-center">Selamat Datang, <?php echo $this->session->nama_lengkap; ?></h3>
     </div>
     <div class="card card-primary m-5">
-      <?php echo $this->session->flashdata('message'); ?>
+
       <div class="card-header">
-        <h3 class="card-title"><i class="fas fa-info-circle"></i>&nbsp;&nbsp;Quick View</h3>
+        <h3 class="card-title"><i class="fas fa-info-circle"></i>&nbsp;&nbsp;</h3>
       </div>
       <div class="card-body">
         <div class="row">
@@ -41,7 +41,7 @@
               <div class="icon">
                 <i class="fas fa-users"></i>
               </div>
-              <a href="<?php echo base_url('admin/newuser') ?>" class="small-box-footer">Selebihnya <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?php echo base_url('admin/newuser') ?>" class="small-box-footer">Lihat Semua <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -60,7 +60,7 @@
               <div class="icon">
                 <i class="fas fa-bookmark"></i>
               </div>
-              <a href="<?php echo base_url('admin/request') ?>" class="small-box-footer">Selebihnya <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?php echo base_url('admin/request') ?>" class="small-box-footer">Lihat Semua <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -79,7 +79,7 @@
               <div class="icon">
                 <i class="fas fa-calendar"></i>
               </div>
-              <a href="<?php echo base_url('admin/jadwal') ?>" class="small-box-footer">Selebihnya <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?php echo base_url('admin/jadwal') ?>" class="small-box-footer">Lihat Semua <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->

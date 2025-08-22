@@ -1,7 +1,7 @@
 <footer class="main-footer">
 	<!-- To the right -->
 	<!-- Default to the left -->
-	<strong>Copyright &copy; 2019 <a href="<?php echo base_url() ?>">Siplabs Smanda</a>.</strong>
+	<strong>Copyright &copy; 2023 <a href="<?php echo base_url() ?>">Sistem Peminjaman Ruang</a>.</strong>
 </footer>
 </div>
 <!-- jQuery -->

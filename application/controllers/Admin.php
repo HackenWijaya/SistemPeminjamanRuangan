@@ -4,6 +4,7 @@ class Admin extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model('model');
 		if (null == $this->session->level) {
 			redirect('auth');
 		} else {
@@ -281,7 +282,7 @@ class Admin extends CI_Controller
 		$data['title'] = "Profil Saya";
 		$data['user'] = $this->session->userdata('id_user');
 		$data['username'] = $this->session->userdata('username');
-		$data['profile'] = $this->m_siplabs->getwhere('user', array('id_user' => $id_user))->result();
+		$data['profile'] = $this->model->getwhere('user', array('id_user' => $id_user))->result();
 		$this->load->view('templates/header', $data);
 		$this->load->view('admin/myprofile', $data);
 		$this->load->view('templates/footer');

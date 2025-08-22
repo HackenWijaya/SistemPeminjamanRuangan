@@ -4,6 +4,7 @@ class Auth extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model('model');
 	}
 
 	public function index()
@@ -20,7 +21,7 @@ class Auth extends CI_Controller
 			$data['title'] = "Login";
 			// $this->load->view('templates/header', $data);
 			$this->load->view('login', $data);
-			// $this->load->view('templates/footer', $data);
+			// $this->load->view('templates/footer', $data);                   
 		} else {
 			$this->_login();
 		}
@@ -82,7 +83,7 @@ class Auth extends CI_Controller
 			'status' => 0
 		];
 
-		$this->m_siplabs->add_data('user', $array);
+		$this->model->add_data('user', $array);
 		$this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible">
 			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 			<h5><i class="icon fas fa-check"></i> Mendaftar berhasil!</h5>
@@ -98,5 +99,83 @@ class Auth extends CI_Controller
 		$this->session->unset_userdata('nama_lengkap');
 		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Logout berhasil!</div>');
 		redirect('auth');
+	}
+
+
+	// BUAT OTORISASI GOOGLE
+	public function authorization()
+	{
+		$jsonStr = file_get_contents('php://input');
+		$jsonObj = json_decode($jsonStr);
+
+		if (!empty($jsonObj->request_type) && $jsonObj->request_type == 'user_auth') {
+			$credential = !empty($jsonObj->credential) ? $jsonObj->credential : '';
+
+			list($header, $payload, $signature) = explode('.', $credential);
+			$responsePayload = json_decode(base64_decode($payload));
+
+			if (!empty($responsePayload)) {
+				$oauth_provider = 'google';
+				$oauth_uid = !empty($responsePayload->oauth_uid) ? $responsePayload->sub : '';
+				$first_name = !empty($responsePayload->given_name) ? $responsePayload->given_name : '';
+				$last_name = !empty($responsePayload->family_name) ? $responsePayload->family_name : '';
+				$name = $first_name . " " . $last_name;
+				$email = !empty($responsePayload->email) ? $responsePayload->email : '';
+				$pass = 123;
+
+				$vald = $this->m_user->getByEmail($email);
+
+				if ($vald) {
+					$data = [
+						'nama' => $name,
+						'password' => $pass
+					];
+					$this->m_user->update(['email' => $email], $data);
+
+					$user = [
+						'nama' => $vald['nama'],
+						'email' => $vald['email'],
+						'level' => $vald['level']
+					];
+
+					$this->session->set_userdata($user);
+
+					// Tambahankan dibawahni kondisi kalau dia tu role admin atau user
+					// buat Status 1 untuk admin, buat status 2 untuk user.
+
+					// [CONTOH ISI KODE IF DIBAWAH NI]
+					// $output = [
+					// 	'status' => 1,
+					// 	'pdata' => $responsePayload
+					// ];
+
+					// echo json_encode($output);
+
+					if ($userRole == 'Admin') {
+						$output = [
+							'status' => 1,
+							'pdata' => $responsePayload
+						];
+					} elseif ($userRole == 'Peminjam') {
+						$output = [
+							'status' => 2,
+							'pdata' => $responsePayload
+						];
+					}
+
+				} else {
+
+					$output = [
+						'status' => 0,
+						'pdata' => $responsePayload
+					];
+
+					echo json_encode($output);
+
+				}
+			} else {
+				echo json_encode(['error' => 'Account Data not Available']);
+			}
+		}
 	}
 }

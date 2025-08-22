@@ -19,7 +19,7 @@
     <!-- Main content -->
     <div class="content">
       <div class="container">
-        <?php echo $this->session->flashdata('message'); ?>
+       
         <div class="card">
           <div class="card-body">
             <div class="row">

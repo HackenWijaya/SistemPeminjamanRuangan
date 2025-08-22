@@ -14,15 +14,18 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="">Nama</label>
-                            <input type="text" name="nama_asker" id="" class="form-control" placeholder="Sebutkan nama anda" required aria-describedby="helpId">
+                            <input type="text" name="nama_asker" id="" class="form-control"
+                                placeholder="Sebutkan nama anda" required aria-describedby="helpId">
                         </div>
                         <div class="form-group">
                             <label>Judul</label>
-                            <input type="text" id="judulpertanyaan" name="judul" required class="form-control" placeholder="Sebutkan judul">
+                            <input type="text" id="judulpertanyaan" name="judul" required class="form-control"
+                                placeholder="Sebutkan judul">
                         </div>
                         <div class="form-group">
                             <label for="">Isi pertanyaan</label>
-                            <textarea class="form-control" name="deskripsi" id="deskripsipertanyaan" rows="5" placeholder="Deskripsi, ulasan rinci mengenai pertanyaan"></textarea>
+                            <textarea class="form-control" name="deskripsi" id="deskripsipertanyaan" rows="5"
+                                placeholder="Deskripsi, ulasan rinci mengenai pertanyaan"></textarea>
                         </div>
                     </div>
                     <!-- /.card-body -->
@@ -55,11 +58,13 @@
                         <input type="hidden" id="id_help" name="id_help">
                         <div class="form-group">
                             <label>Judul</label>
-                            <input type="text" id="judul_help" name="judul" class="form-control" placeholder="Sebutkan judul">
+                            <input type="text" id="judul_help" name="judul" class="form-control"
+                                placeholder="Sebutkan judul">
                         </div>
                         <div class="form-group">
                             <label>Deskripsi</label>
-                            <textarea class="form-control" name="deskripsi" id="isi_help" rows="5" placeholder="Deskripsi, ulasan rinci mengenai pertanyaan"></textarea>
+                            <textarea class="form-control" name="deskripsi" id="isi_help" rows="5"
+                                placeholder="Deskripsi, ulasan rinci mengenai pertanyaan"></textarea>
                         </div>
                     </div>
                     <!-- /.card-body -->
@@ -118,24 +123,28 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <input type="hidden" id="id_user" name="id_user" value="<?php echo $this->session->userdata('id_user') ?>">
+                    <input type="hidden" id="id_user" name="id_user"
+                        value="<?php echo $this->session->userdata('id_user') ?>">
                     <div class="form-group">
                         <label for="">Password lama</label>
                         <div class="input-group">
-                            <input type="password" id="password_lama" name="password_lama" class="form-control" required>
+                            <input type="password" id="password_lama" name="password_lama" placeholder="Password"
+                                class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="">Password baru</label>
                         <div class="input-group">
-                            <input type="password" id="password_baru" name="password_baru" class="form-control" required>
+                            <input type="password" id="password_baru" name="password_baru" class="form-control"
+                                required>
                         </div>
                         <span class="text-danger" id="password_baru_message"></span>
                     </div>
                     <div class="form-group">
                         <label for="">Konfirmasi password baru</label>
                         <div class="input-group">
-                            <input type="password" id="password_baru2" name="password_baru2" class="form-control" required>
+                            <input type="password" id="password_baru2" name="password_baru2" class="form-control"
+                                required>
                         </div>
                     </div>
                 </div>
@@ -164,7 +173,8 @@
                         <input type="hidden" name="id_ask" id="id_ask">
                         <div class="form-group">
                             <label>Judul</label>
-                            <input type="text" name="judul_ask" id="judul_ask" class="form-control" placeholder="Sebutkan judul">
+                            <input type="text" name="judul_ask" id="judul_ask" class="form-control"
+                                placeholder="Sebutkan judul">
                         </div>
                         <div class="form-group">
                             <label>Isi</label>
@@ -187,9 +197,12 @@
 
 <!-- MODAL PEMINJAM -->
 <!-- MODAL MENDAFTAR -->
+
+</style>
 <div class="modal fade" id="mendaftar">
     <div class="modal-dialog modal-md">
-        <div class="modal-content">
+        <div class="modal-content"
+        style="background: #4169E1; color: white; border: none; border-radius: 0px3;">
             <form action="<?php echo base_url('auth/mendaftar') ?>" method="post">
                 <div class="modal-header">
                     <h5 class="modal-title">Daftar Akun baru</h5>
@@ -200,52 +213,71 @@
                 <div class="modal-body">
                     <div class="alert alert-danger" style="display: none" role="alert" id="alertdaftar"></div>
                     <span id="alertusername"></span>
-                    <div class="input-group mb-3">
-                        <input type="text" name="nama_lengkap" class="form-control" placeholder="Nama Lengkap">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-id-card"></span>
+                    <!-- Your form fields go here -->
+                    <!-- ... -->
+                    <form action="<?php echo base_url('auth/mendaftar') ?>" method="post">
+
+                        <div class="input-group mb-3">
+                            <input type="text" name="nama_lengkap" class="form-control" placeholder="Nama Lengkap">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-id-card"></span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="text" id="usernamedaftar" name="username" class="form-control usernamedaftar" placeholder="Username">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-user"></span>
+                        <div class="input-group mb-3">
+                            <input type="text" id="usernamedaftar" name="username" class="form-control usernamedaftar"
+                                placeholder="Username">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-user"></span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="password" name="password" id="password" class="form-control" placeholder="Password">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
+                        <div class="input-group mb-3">
+                            <input type="password" name="password" id="password" class="form-control"
+                                placeholder="Password">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="password" name="password2" id="password2" class="form-control" placeholder="Konfirmasi Password">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
+                        <div class="input-group mb-3">
+                            <input type="password" name="password2" id="password2" class="form-control"
+                                placeholder="Konfirmasi Password">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-lock"></span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="text" id="nip" name="nip" class="form-control" onkeypress="return isNumberKey(event)" onkeyup="return ceknip()" placeholder="NIP/NIS">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-sort-numeric-up-alt"></span>
+                        <div class="input-group mb-3">
+                            <input type="text" id="nip" name="nip" class="form-control"
+                                onkeypress="return isNumberKey(event)" onkeyup="return ceknip()" placeholder="NIM">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-sort-numeric-up-alt"></span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <button type="submit" id="daftar" name="daftar" class="btn btn-primary btn-block btn-flat">Daftar</button>
+                        <button type="submit" id="daftar" name="daftar"
+                            class="btn btn-success btn-block btn-flat btn-mendaftar" style="background: #00BFFF; color: white; border: none; border-radius: 20px;
+                    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+                    transition: box-shadow 0.3s ease-in-out, background 0.3s ease-in-out;
+                    " onmouseover="this.style.boxShadow='0 12px 16px 0 rgba(0,0,0,0.4), 0 17px 50px 0 rgba(0,0,0,0.19)';
+                    " onmouseout="this.style.boxShadow='0 8px 16px 0 rgba(0,0,0,0), 0 6px 20px 0 rgba(0,0,0,0.19)';">
+                            Daftar
+                        </button>
+
+
                 </div>
             </form>
+
         </div>
     </div>
 </div>
+
 
 <!-- MODAL PINJAM -->
 <div class="modal fade" id="pinjam">
@@ -261,48 +293,52 @@
                 <div class="modal-body">
                     <div class="card-body">
                         <input type="hidden" id="pinjam_id_user" name="id_user" value="<?php if (isset($user)) {
-                                                                                            echo $user;
-                                                                                        } ?>">
+                            echo $user;
+                        } ?>">
                         <div class="form-group">
                             <label>Username</label>
-                            <input type="text" id="pinjam_username" name="username" readonly class="form-control" value="<?php if (isset($username)) {
-                                                                                                                                echo $username;
-                                                                                                                            } ?>" required="">
+                            <input type="text" id="pinjam_username" name="username" readonly class="form-control"
+                                value="<?php if (isset($username)) {
+                                    echo $username;
+                                } ?>" required="">
                         </div>
                         <div class="form-group">
                             <label>Ruangan</label>
                             <select id="id_ruangan" name="id_ruangan" class="form-control">
                                 <?php
-                                $ruangan2 = $this->m_siplabs->get_datawithadd('ruangan', 'where status_ruangan="Nganggur"')->result();
-                                foreach ($ruangan2 as $r2) : ?>
-                                    <option value="<?php echo $r2->id_ruangan ?>"><?php echo $r2->kode_ruangan ?> - <?php echo $r2->nama_ruangan ?></option>
+                                $ruangan2 = $this->model->get_datawithadd('ruangan', 'where status_ruangan="Nganggur"')->result();
+                                foreach ($ruangan2 as $r2): ?>
+                                    <option value="<?php echo $r2->id_ruangan ?>">
+                                        <?php echo $r2->kode_ruangan ?> -
+                                        <?php echo $r2->nama_ruangan ?>
+                                    </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
                         <div class="form-group">
                             <label>Jam Mulai</label>
-                            <input type="time" id="pinjam_jam_mulai" name="jam_mulai" class="form-control verifydate" value="<?php echo date('H:i') ?>">
+                            <input type="time" id="pinjam_jam_mulai" name="jam_mulai" class="form-control verifydate"
+                                value="<?php echo date('H:i') ?>">
                         </div>
                         <div class="form-group">
                             <label>Jam Selesai</label>
-                            <input type="time" id="pinjam_jam_selesai" name="jam_berakhir" class="form-control verifydate" value="<?php $time = new DateTime(date('H:i'));
-                                                                                                                                    $time->modify('+2 hours');
-                                                                                                                                    echo $time->format('H:i'); ?>">
+                            <input type="time" id="pinjam_jam_selesai" name="jam_berakhir"
+                                class="form-control verifydate"
+                                value="<?php $time = new DateTime(date('H:i'));
+                                $time->modify('+2 hours');
+                                echo $time->format('H:i'); ?>">
                         </div>
                         <div class="form-group">
                             <label>Tanggal</label>
-                            <input type="date" id="tanggal" name="tanggal" class="form-control verifydate" value="<?php echo date('Y-m-d', time()); ?>">
+                            <input type="date" id="tanggal" name="tanggal" class="form-control verifydate"
+                                value="<?php echo date('Y-m-d', time()); ?>">
                             <span id="alerttanggal" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label>Keterangan Peminjaman</label>
-                            <select name="keterangan" id="keterangan" class="form-control">
-                                <option value="Seminar">Seminar</option>
-                                <option value="OSIS">OSIS</option>
-                                <option value="Rapat">Rapat</option>
-                                <option value="Pelatihan/Workshop">Pelatihan/Workshop</option>
-                                <option value="Kegiatan Kepemimpinan">Kegiatan Kepemimpinan</option>
-                            </select>
+                            <input type=text name="keterangan" id="keterangan" class="form-control">
+
+                            </input>
                         </div>
                     </div>
                     <!-- /.card-body -->
@@ -331,52 +367,56 @@
             </div>
             <div class="modal-body">
                 <p>
-                    <form role="form" action="" method="POST" enctype="multipart/form-data">
-                        <div class="card-body">
-                            <input type="hidden" name="id_user" value="<?php if (isset($user)) {
-                                                                            echo $user;
-                                                                        } ?>">
-                            <div class="form-group">
-                                <label>Username</label>
-                                <input type="text" name="username" disabled class="form-control" value="<?php if (isset($username)) {
-                                                                                                            echo $username;
-                                                                                                        } ?>" required="">
-                            </div>
-                            <div class="form-group">
-                                <label>Ruangan</label>
-                                <select name="id_ruangan" class="form-control">
-                                    <?php
-                                    $ruangan2 = $this->m_siplabs->get_data('ruangan')->result();
-                                    foreach ($ruangan2 as $r2) : ?>
-                                        <option value="<?php echo $r2->id_ruangan ?>"><?php echo $r2->kode_ruangan ?> - <?php echo $r2->nama_ruangan ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Jam Mulai</label>
-                                <input type="time" name="jam_mulai" class="form-control" value="08:00">
-                            </div>
-                            <div class="form-group">
-                                <label>Jam Selesai</label>
-                                <input type="time" name="jam_berakhir" class="form-control" value="08:50">
-                            </div>
-                            <div class="form-group">
-                                <label>Tanggal</label>
-                                <input type="date" name="tanggal" class="form-control" value="<?php echo date('Y-m-d'); ?>">
-                            </div>
-                            <div class="form-group">
-                                <label>Keterangan Peminjaman</label>
-                                <select name="keterangan" id="keterangan" class="form-control">
-                                    <option value="Seminar">Seminar</option>
-                                    <option value="OSIS">OSIS</option>
-                                    <option value="Rapat">Rapat</option>
-                                    <option value="Pelatihan/Workshop">Pelatihan/Workshop</option>
-                                    <option value="Kegiatan Kepemimpinan">Kegiatan Kepemimpinan</option>
-                                </select>
-                            </div>
+                <form role="form" action="" method="POST" enctype="multipart/form-data">
+                    <div class="card-body">
+                        <input type="hidden" name="id_user" value="<?php if (isset($user)) {
+                            echo $user;
+                        } ?>">
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" name="username" disabled class="form-control" value="<?php if (isset($username)) {
+                                echo $username;
+                            } ?>"
+                                required="">
                         </div>
-                        <!-- /.card-body -->
-                </p>
+                        <div class="form-group">
+                            <label>Ruangan</label>
+                            <select name="id_ruangan" class="form-control">
+                                <?php
+                                $ruangan2 = $this->model->get_data('ruangan')->result();
+                                foreach ($ruangan2 as $r2): ?>
+                                    <option value="<?php echo $r2->id_ruangan ?>">
+                                        <?php echo $r2->kode_ruangan ?> -
+                                        <?php echo $r2->nama_ruangan ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Jam Mulai</label>
+                            <input type="time" name="jam_mulai" class="form-control" value="08:00">
+                        </div>
+                        <div class="form-group">
+                            <label>Jam Selesai</label>
+                            <input type="time" name="jam_berakhir" class="form-control" value="08:50">
+                        </div>
+                        <div class="form-group">
+                            <label>Tanggal</label>
+                            <input type="date" name="tanggal" class="form-control" value="<?php echo date('Y-m-d'); ?>">
+                        </div>
+                        <div class="form-group">
+                            <label>Keterangan Peminjaman</label>
+                            <select name="keterangan" id="keterangan" class="form-control">
+                                <option value="Seminar">Seminar</option>
+                                <option value="OSIS">OSIS</option>
+                                <option value="Rapat">Rapat</option>
+                                <option value="Pelatihan/Workshop">Pelatihan/Workshop</option>
+                                <option value="Kegiatan Kepemimpinan">Kegiatan Kepemimpinan</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                    </p>
             </div>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
